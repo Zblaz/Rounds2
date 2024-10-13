@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbat1ectky8mm"]
+
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_u1gic"]
+[ext_resource type="PackedScene" uid="uid://c0mvqe3008l7b" path="res://Scenes/background.tscn" id="2_jwfro"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u1gic")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Music Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Set Music Volume"
+text = "Music Volume"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Music Volume"]
+layout_mode = 2
+offset_top = 70.0
+offset_right = 1153.0
+offset_bottom = 86.0
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Return to Main Menu"
+text = "Back"
+flat = true
+
+[node name="Background" parent="." instance=ExtResource("2_jwfro")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

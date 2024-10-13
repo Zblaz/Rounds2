@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0mvqe3008l7b"]
+
+[ext_resource type="Texture2D" uid="uid://bsgced3uvv1ja" path="res://Images/Blue_BG.jpg" id="1_pys5x"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="BlueBg" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(288.725, 149)
+scale = Vector2(1.21635, 1)
+texture = ExtResource("1_pys5x")
+flip_v = true
+
+[node name="BlueBg2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(289.5, 469)
+scale = Vector2(1.21308, 1.19595)
+texture = ExtResource("1_pys5x")
+flip_h = true
+
+[node name="BlueBg3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(865, 472.5)
+scale = Vector2(1.21941, 1.18581)
+texture = ExtResource("1_pys5x")
+flip_v = true
+
+[node name="BlueBg4" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(864.275, 149)
+scale = Vector2(1.21213, 1)
+texture = ExtResource("1_pys5x")
+flip_h = true
