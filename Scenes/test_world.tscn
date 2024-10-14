@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://duetot553lyv2"]
+[gd_scene load_steps=5 format=3 uid="uid://duetot553lyv2"]
 
+[ext_resource type="Script" path="res://Scenes/rigid_body_2d.gd" id="1_8iggm"]
 [ext_resource type="PackedScene" uid="uid://m1bjk5tikiey" path="res://Scenes/player.tscn" id="1_wnav8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmq6o"]
@@ -11,8 +12,10 @@ radius = 35.2278
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(222, 149)
+position = Vector2(332.708, 266.162)
 gravity_scale = 0.36
+can_sleep = false
+script = ExtResource("1_8iggm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_dmq6o")
@@ -21,7 +24,7 @@ shape = SubResource("RectangleShape2D_dmq6o")
 polygon = PackedVector2Array(-11, 32, 11, 32, 11, -32, -11, -32)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RigidBody2D/CollisionShape2D/Polygon2D"]
-position = Vector2(0, -38)
+position = Vector2(1.29218, -48.1617)
 node_a = NodePath("../../../../StaticBody2D2")
 node_b = NodePath("../../..")
 motor_target_velocity = 0.222879
@@ -60,10 +63,10 @@ polygon = PackedVector2Array(0, -44, 12, -43, 22, -38, 31, -31, 38, -22, 42, -12
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-400, -497)
+position = Vector2(-309, -397)
 polygon = PackedVector2Array(468, 551, 814, 551, 815, 601, 468, 600)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2/CollisionPolygon2D3"]
-position = Vector2(469.378, 276)
+position = Vector2(470, 276)
 scale = Vector2(0.298041, 0.496984)
 polygon = PackedVector2Array(-7, 654, 1163, 654, 1156.24, 553.393, -7, 551)

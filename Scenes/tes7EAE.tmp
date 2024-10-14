@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://duetot553lyv2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1, 646, 906, 646, 907, 533, 1, 533)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+polygon = PackedVector2Array(2, 532, -3, 646, 908, 644, 907, 535)
