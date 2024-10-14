@@ -12,6 +12,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u1gic")
 
+[node name="Background" parent="." instance=ExtResource("2_jwfro")]
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_top = 67.0
@@ -39,7 +41,5 @@ layout_mode = 2
 tooltip_text = "Return to Main Menu"
 text = "Back"
 flat = true
-
-[node name="Background" parent="." instance=ExtResource("2_jwfro")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
