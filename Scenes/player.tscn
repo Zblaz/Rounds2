@@ -18,5 +18,11 @@ polygon = PackedVector2Array(0, -44, 12, -43, 22, -38, 31, -31, 38, -22, 42, -12
 shape = SubResource("CircleShape2D_mqdq0")
 
 [node name="Gun" type="Polygon2D" parent="."]
+position = Vector2(7, 0)
 polygon = PackedVector2Array(53, 4, 55, -7, 82, -7, 82, -3, 63, -2, 62, 4)
 script = ExtResource("2_jcswm")
+
+[node name="Line2D" type="Line2D" parent="Gun"]
+position = Vector2(-8, 3)
+points = PackedVector2Array(18, 0, 44, 12, 66, -2)
+width = 5.0

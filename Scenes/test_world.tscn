@@ -31,7 +31,7 @@ position = Vector2(7, -14)
 polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
 
 [node name="Polygon2D" type="Polygon2D" parent="Floor/CollisionPolygon2D"]
-position = Vector2(5, -229)
+position = Vector2(-7, -231)
 scale = Vector2(1, 1.40741)
 polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
 
@@ -85,6 +85,9 @@ shape = SubResource("CircleShape2D_lggcf")
 position = Vector2(-0.298218, 0.132904)
 polygon = PackedVector2Array(0, -61, -4, -9, -37, -42, -30, -51, -43, -44, -7, -4, -56, -1, -58, -11, -61, 1, -7, 4, -38, 36, -49, 30, -43, 42, -3, 9, -2, 54, -15, 52, 0, 61, 4, 9, 35, 40, 29, 50, 42, 44, 8, 4, 55, 2, 55, 13, 60, -1, 8, -4, 42, -38, 51, -32, 44, -43, 4, -10, 2, -55, 13, -57)
 script = ExtResource("4_cotuj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hazards"]
+polygon = PackedVector2Array(1189, -44, 1171, -104, -87, -104, -82, 780, 1247, 778, 1251, -75, 1189, -71, 1182, 740, -37, 740, -37, -48)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_wnav8")]
 
