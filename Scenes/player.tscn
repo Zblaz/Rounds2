@@ -1,18 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://m1bjk5tikiey"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_v0s2h"]
+[ext_resource type="Script" path="res://Scripts/Gun.gd" id="2_jcswm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqdq0"]
 radius = 35.2278
-
-[sub_resource type="GDScript" id="GDScript_mdtce"]
-script/source = "extends Polygon2D
-
-func _process(delta: float):
-	var mouse_position = get_global_mouse_position()
-	look_at(mouse_position)
-	
-"
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(128, 125)
@@ -27,4 +19,4 @@ shape = SubResource("CircleShape2D_mqdq0")
 
 [node name="Gun" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(53, 4, 55, -7, 82, -7, 82, -3, 63, -2, 62, 4)
-script = SubResource("GDScript_mdtce")
+script = ExtResource("2_jcswm")
