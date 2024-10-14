@@ -9,4 +9,4 @@ offset_bottom = 69.0
 max_value = 1.0
 step = 0.001
 script = ExtResource("1_1o1lb")
-bus_name = "music"
+bus_name = "Music"

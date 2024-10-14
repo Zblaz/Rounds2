@@ -17,10 +17,10 @@ script = ExtResource("1_u1gic")
 
 [node name="Options" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_left = 402.0
-offset_top = 212.0
-offset_right = 752.0
-offset_bottom = 501.0
+offset_left = 406.0
+offset_top = 206.0
+offset_right = 756.0
+offset_bottom = 495.0
 
 [node name="Contents" type="VBoxContainer" parent="Options"]
 layout_mode = 2
@@ -29,11 +29,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Music Volume"
 
-[node name="HSlider" parent="Options/Contents" instance=ExtResource("3_3vwjx")]
+[node name="Music Slider" parent="Options/Contents" instance=ExtResource("3_3vwjx")]
 layout_mode = 2
+min_value = 0.0
 
 [node name="Back" type="Button" parent="Options/Contents"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 tooltip_text = "Return to Main Menu"
 text = "Back"
 flat = true
