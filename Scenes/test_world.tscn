@@ -12,6 +12,7 @@ radius = 35.2278
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(222, 149)
+gravity_scale = 0.36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_dmq6o")
@@ -20,7 +21,7 @@ shape = SubResource("RectangleShape2D_dmq6o")
 polygon = PackedVector2Array(-11, 32, 11, 32, 11, -32, -11, -32)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="RigidBody2D/CollisionShape2D/Polygon2D"]
-position = Vector2(0, -30)
+position = Vector2(0, -38)
 node_a = NodePath("../../../../StaticBody2D2")
 node_b = NodePath("../../..")
 motor_target_velocity = 0.222879
