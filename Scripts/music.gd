@@ -1,4 +1,4 @@
-extends HSlider    #Dosnt Work Please Fix
+extends HSlider    
 
 @export
 var bus_name : String

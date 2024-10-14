@@ -79,7 +79,6 @@ scale = Vector2(0.298041, 0.496984)
 polygon = PackedVector2Array(-7, 654, 1163, 654, 1156.24, 553.393, -7, 551)
 
 [node name="Pause_Menu" parent="." instance=ExtResource("3_yrrsj")]
-visible = false
 offset_left = 203.0
 offset_top = 290.0
 offset_right = 203.0
