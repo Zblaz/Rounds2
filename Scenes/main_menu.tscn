@@ -31,10 +31,16 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Create_Lobby" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Online Lobby"
-text = "Lobby"
+tooltip_text = "Create an Online Lobby"
+text = "Create Lobby"
+flat = true
+
+[node name="Join_Online_Lobby" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Join an Online Lobby"
+text = "Join Online Lobby"
 flat = true
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -50,6 +56,7 @@ tooltip_text = "Leave Game"
 text = "Quit"
 flat = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Create_Lobby" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Join_Online_Lobby" to="." method="_on_join_online_lobby_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
