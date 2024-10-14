@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/test_world.gd" id="1_gkex7"]
 [ext_resource type="PackedScene" uid="uid://m1bjk5tikiey" path="res://Scenes/player.tscn" id="1_wnav8"]
 [ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="3_yrrsj"]
-[ext_resource type="Script" path="res://Scenes/polygon_2d.gd" id="4_cotuj"]
+[ext_resource type="Script" path="res://Scripts/polygon_2d.gd" id="4_cotuj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gqi2"]
 radius = 35.2278
@@ -54,7 +54,6 @@ polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
 [node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
 position = Vector2(548, 300)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_48ued")
 
 [node name="Center_diamond_shape" type="Polygon2D" parent="Platforms and obstacles/Center_Diamond"]
