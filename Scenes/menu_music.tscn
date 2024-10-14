@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkj3olg7fk1ap"]
 
 [ext_resource type="AudioStream" uid="uid://dkidnv42t1f0p" path="res://Audio/Global/RoundsMenu.wav" id="1_4csqj"]
-[ext_resource type="Script" path="res://Scenes/menu_music.gd" id="1_b5w6p"]
+[ext_resource type="Script" path="res://Scripts/menu_music.gd" id="1_b5w6p"]
 
 [node name="Menu_Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_4csqj")
