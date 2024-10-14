@@ -1,72 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://duetot553lyv2"]
+[gd_scene load_steps=7 format=3 uid="uid://duetot553lyv2"]
 
-[ext_resource type="Script" path="res://Scenes/rigid_body_2d.gd" id="1_8iggm"]
 [ext_resource type="PackedScene" uid="uid://m1bjk5tikiey" path="res://Scenes/player.tscn" id="1_wnav8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmq6o"]
-size = Vector2(22, 64)
+[sub_resource type="GDScript" id="GDScript_wnldm"]
+script/source = "extends Node2D
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8gqi2"]
-radius = 35.2278
 
-[node name="Node2D" type="Node2D"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(332.708, 266.162)
-gravity_scale = 0.36
-can_sleep = false
-script = ExtResource("1_8iggm")
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("RectangleShape2D_dmq6o")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs1tx"]
+size = Vector2(167, 171.231)
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D/CollisionShape2D"]
-polygon = PackedVector2Array(-11, 32, 11, 32, 11, -32, -11, -32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nh53d"]
+size = Vector2(130, 24.2162)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="RigidBody2D/CollisionShape2D/Polygon2D"]
-position = Vector2(1.29218, -48.1617)
-node_a = NodePath("../../../../StaticBody2D2")
-node_b = NodePath("../../..")
-motor_target_velocity = 0.222879
+[sub_resource type="GDScript" id="GDScript_jllaa"]
+script/source = "extends Area2D
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(7, -14)
-polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-position = Vector2(5, -229)
-scale = Vector2(1, 1.40741)
-polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
+func _on_body_entered(body: CharacterBody2D) -> void:
+		print('death')
+"
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-7, -205)
-polygon = PackedVector2Array(468, 551, 814, 551, 815, 601, 468, 600)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrwba"]
+radius = 55.0364
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D2"]
-position = Vector2(471.07, 275.972)
-scale = Vector2(0.295727, 0.496984)
-polygon = PackedVector2Array(-7, 654, 1163, 654, 1156.24, 553.393, -7, 551)
+[node name="Map1" type="Node2D"]
+script = SubResource("GDScript_wnldm")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_wnav8")]
+[node name="Obstacles" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(124, 488)
-shape = SubResource("CircleShape2D_8gqi2")
+[node name="Floor" type="CollisionPolygon2D" parent="Obstacles"]
+polygon = PackedVector2Array(-1, 646, 1159, 643, 1154, 534, 1, 533)
 
-[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D/CollisionShape2D2"]
-position = Vector2(5.126e-06, -0.393243)
-scale = Vector2(0.795455, 0.786517)
-polygon = PackedVector2Array(0, -44, 12, -43, 22, -38, 31, -31, 38, -22, 42, -12, 44, 0, 43, 12, 38, 23, 31, 32, 22, 39, 11, 43, 0, 45, -11, 43, -22, 38, -31, 31, -38, 22, -43, 12, -44, -1, -43, -11, -38, -23, -32, -31, -22, -38, -11, -43)
+[node name="Floor_shape" type="Polygon2D" parent="Obstacles/Floor"]
+position = Vector2(0.813392, 0)
+scale = Vector2(1.27113, 1)
+polygon = PackedVector2Array(2, 532, -3, 646, 908, 644, 907, 535)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="Diamond" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(565, 298)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_qs1tx")
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2(-309, -397)
-polygon = PackedVector2Array(468, 551, 814, 551, 815, 601, 468, 600)
+[node name="Diamond_shape" type="Polygon2D" parent="Obstacles/Diamond"]
+polygon = PackedVector2Array(84.8527, 86.267, 83.4385, -86.267, -84.1458, -86.9741, -84.1458, 85.56)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2/CollisionPolygon2D3"]
-position = Vector2(470, 276)
-scale = Vector2(0.298041, 0.496984)
-polygon = PackedVector2Array(-7, 654, 1163, 654, 1156.24, 553.393, -7, 551)
+[node name="Platform_left" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(258, 385.892)
+shape = SubResource("RectangleShape2D_nh53d")
+
+[node name="Platform_left_shape" type="Polygon2D" parent="Obstacles/Platform_left"]
+polygon = PackedVector2Array(65, 12.1081, -65, 12.1081, -65, -11.8919, 65, -11.8919)
+
+[node name="Platform_right" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(863, 386)
+shape = SubResource("RectangleShape2D_nh53d")
+
+[node name="Platform_right_shape" type="Polygon2D" parent="Obstacles/Platform_right"]
+polygon = PackedVector2Array(-65, -12, 65, -12, 65, 12, -65, 12)
+
+[node name="Player" parent="." instance=ExtResource("1_wnav8")]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_jllaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(564, 475)
+shape = SubResource("CircleShape2D_vrwba")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]

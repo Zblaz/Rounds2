@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var radius = 50
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
@@ -21,5 +21,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
+
+func _on_area_2d_body_entered(area: CharacterBody2D):
+	hide()
