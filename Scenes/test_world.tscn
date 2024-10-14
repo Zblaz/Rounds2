@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://duetot553lyv2"]
+[gd_scene load_steps=9 format=3 uid="uid://duetot553lyv2"]
 
 [ext_resource type="Script" path="res://Scripts/test_world.gd" id="1_gkex7"]
-[ext_resource type="PackedScene" uid="uid://bm51igncwj17o" path="res://Scenes/player.tscn" id="1_wnav8"]
-[ext_resource type="PackedScene" uid="uid://dlo0o8o6r6mgv" path="res://Scenes/pause_menu.tscn" id="3_yrrsj"]
+[ext_resource type="PackedScene" uid="uid://m1bjk5tikiey" path="res://Scenes/player.tscn" id="1_wnav8"]
+[ext_resource type="PackedScene" path="res://Scenes/pause_menu.tscn" id="3_yrrsj"]
+[ext_resource type="Script" path="res://Scenes/polygon_2d.gd" id="4_cotuj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gqi2"]
 radius = 35.2278
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3y2u2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48ued"]
+size = Vector2(148, 145)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmq6o"]
-size = Vector2(22, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7m2y"]
+size = Vector2(99.6876, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lggcf"]
+radius = 61.131
 
 [node name="Test_Map" type="Node2D"]
 script = ExtResource("1_gkex7")
@@ -33,24 +38,6 @@ position = Vector2(5.126e-06, -0.393243)
 scale = Vector2(0.795455, 0.786517)
 polygon = PackedVector2Array(0, -44, 12, -43, 22, -38, 31, -31, 38, -22, 42, -12, 44, 0, 43, 12, 38, 23, 31, 32, 22, 39, 11, 43, 0, 45, -11, 43, -22, 38, -31, 31, -38, 22, -43, 12, -44, -1, -43, -11, -38, -23, -32, -31, -22, -38, -11, -43)
 
-[node name="Rope" type="RigidBody2D" parent="."]
-position = Vector2(332.708, 266.162)
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_3y2u2")
-can_sleep = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rope"]
-shape = SubResource("RectangleShape2D_dmq6o")
-
-[node name="Polygon2D" type="Polygon2D" parent="Rope/CollisionShape2D"]
-polygon = PackedVector2Array(-11, 32, 11, 32, 11, -32, -11, -32)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Rope/CollisionShape2D/Polygon2D"]
-position = Vector2(1.29218, -48.1617)
-node_a = NodePath("../../../../Floor3")
-node_b = NodePath("../../..")
-motor_target_velocity = 0.222879
-
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
@@ -62,25 +49,56 @@ position = Vector2(5, -229)
 scale = Vector2(1, 1.40741)
 polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platforms and obstacles" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(665.5, 422)
-scale = Vector2(12.25, 4.6)
-polygon = PackedVector2Array(-10, -9.99999, 10, -9.99999, 10, 9.78261, -10, 9.78261)
+[node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(548, 300)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_48ued")
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-position = Vector2(464.07, 70.972)
-scale = Vector2(0.295727, 0.496984)
-polygon = PackedVector2Array(-1603.07, -162.927, -1535.16, -162.927, -1535.16, -123.121, -1603.07, -123.559)
+[node name="Center_diamond_shape" type="Polygon2D" parent="Platforms and obstacles/Center_Diamond"]
+polygon = PackedVector2Array(73.5391, 73.5391, 75.6604, -75.6604, -74.9533, -73.5391, -74.9533, 74.9533)
 
-[node name="Floor3" type="StaticBody2D" parent="."]
+[node name="Left_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(301, 399)
+shape = SubResource("RectangleShape2D_b7m2y")
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Floor3"]
-position = Vector2(-309, -397)
-polygon = PackedVector2Array(468, 551, 814, 551, 815, 601, 468, 600)
+[node name="Left_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Left_platform"]
+polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
 
-[node name="Polygon2D" type="Polygon2D" parent="Floor3/CollisionPolygon2D3"]
-position = Vector2(470, 276)
-scale = Vector2(0.298041, 0.496984)
-polygon = PackedVector2Array(-7, 654, 1163, 654, 1156.24, 553.393, -7, 551)
+[node name="Right_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(808, 399)
+shape = SubResource("RectangleShape2D_b7m2y")
+
+[node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
+polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
+
+[node name="Hazards" type="Area2D" parent="."]
+
+[node name="Saw" type="CollisionShape2D" parent="Hazards"]
+position = Vector2(549, 468)
+shape = SubResource("CircleShape2D_lggcf")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hazards/Saw"]
+polygon = PackedVector2Array(0, -61, -4, -9, -37, -42, -30, -51, -43, -44, -7, -4, -56, -1, -58, -11, -61, 1, -7, 4, -38, 36, -49, 30, -43, 42, -3, 9, -2, 54, -15, 52, 0, 61, 4, 9, 35, 40, 29, 50, 42, 44, 8, 4, 55, 2, 55, 13, 60, -1, 8, -4, 42, -38, 51, -32, 44, -43, 4, -10, 2, -55, 13, -57)
+script = ExtResource("4_cotuj")
+
+[node name="Saw2" type="CollisionShape2D" parent="Hazards"]
+position = Vector2(304, 196)
+shape = SubResource("CircleShape2D_lggcf")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hazards/Saw2"]
+polygon = PackedVector2Array(0, -61, -4, -9, -37, -42, -30, -51, -43, -44, -7, -4, -56, -1, -58, -11, -61, 1, -7, 4, -38, 36, -49, 30, -43, 42, -3, 9, -2, 54, -15, 52, 0, 61, 4, 9, 35, 40, 29, 50, 42, 44, 8, 4, 55, 2, 55, 13, 60, -1, 8, -4, 42, -38, 51, -32, 44, -43, 4, -10, 2, -55, 13, -57)
+script = ExtResource("4_cotuj")
+
+[node name="Saw3" type="CollisionShape2D" parent="Hazards"]
+position = Vector2(803, 190)
+shape = SubResource("CircleShape2D_lggcf")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hazards/Saw3"]
+position = Vector2(-0.298218, 0.132904)
+polygon = PackedVector2Array(0, -61, -4, -9, -37, -42, -30, -51, -43, -44, -7, -4, -56, -1, -58, -11, -61, 1, -7, 4, -38, 36, -49, 30, -43, 42, -3, 9, -2, 54, -15, 52, 0, 61, 4, 9, 35, 40, 29, 50, 42, 44, 8, 4, 55, 2, 55, 13, 60, -1, 8, -4, 42, -38, 51, -32, 44, -43, 4, -10, 2, -55, 13, -57)
+script = ExtResource("4_cotuj")
+
+[connection signal="body_entered" from="Hazards" to="Player" method="_on_hazards_body_entered"]

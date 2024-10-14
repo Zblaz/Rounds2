@@ -23,5 +23,5 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 
-func _on_area_2d_body_entered(area: CharacterBody2D):
+func _on_hazards_body_entered(area: CharacterBody2D):
 	hide()
