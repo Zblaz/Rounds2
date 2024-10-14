@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bndhfh5ixoie2"]
+[gd_scene load_steps=3 format=3 uid="uid://bcfhjl6n2xlgc"]
 
 [ext_resource type="Script" path="res://Scripts/create_lobby.gd" id="1_c2pqy"]
 [ext_resource type="PackedScene" uid="uid://c0mvqe3008l7b" path="res://Scenes/background.tscn" id="2_hmhhi"]
