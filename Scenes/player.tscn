@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_v0s2h"]
 [ext_resource type="Script" path="res://Scripts/Gun.gd" id="2_whjw8"]
-[ext_resource type="Script" path="res://Scripts/bullet.gd" id="3_nhqwb"]
+[ext_resource type="Script" path="res://Scenes/bullet.gd" id="3_nhqwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqdq0"]
 radius = 35.2278
