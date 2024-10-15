@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dlo0o8o6r6mgv" path="res://Scenes/pause_menu.tscn" id="3_yrrsj"]
 [ext_resource type="Script" path="res://Scripts/Saws.gd" id="4_cotuj"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lggcf"]
+radius = 61.131
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48ued"]
 size = Vector2(148, 145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7m2y"]
 size = Vector2(99.6876, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_lggcf"]
-radius = 61.131
 
 [node name="Test_Map" type="Node2D"]
 script = ExtResource("1_gkex7")
@@ -24,40 +24,10 @@ offset_top = 290.0
 offset_right = 203.0
 offset_bottom = 290.0
 
-[node name="Platforms and obstacles" type="StaticBody2D" parent="."]
-
-[node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
-position = Vector2(548, 300)
-rotation = 0.785398
-shape = SubResource("RectangleShape2D_48ued")
-
-[node name="Center_diamond_shape" type="Polygon2D" parent="Platforms and obstacles/Center_Diamond"]
-polygon = PackedVector2Array(73.5391, 73.5391, 75.6604, -75.6604, -74.9533, -73.5391, -74.9533, 74.9533)
-
-[node name="Left_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
-position = Vector2(301, 399)
-shape = SubResource("RectangleShape2D_b7m2y")
-
-[node name="Left_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Left_platform"]
-polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
-
-[node name="Right_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
-position = Vector2(808, 399)
-shape = SubResource("RectangleShape2D_b7m2y")
-
-[node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
-polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
-
-[node name="Floor" type="CollisionPolygon2D" parent="Platforms and obstacles"]
-position = Vector2(7, -14)
-polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
-
-[node name="Floor_shape" type="Polygon2D" parent="Platforms and obstacles/Floor"]
-position = Vector2(-7, -231)
-scale = Vector2(1, 1.40741)
-polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_wnav8")]
 
 [node name="Hazards" type="Area2D" parent="."]
+position = Vector2(3, -5)
 
 [node name="Saw" type="CollisionShape2D" parent="Hazards"]
 position = Vector2(549, 468)
@@ -87,6 +57,37 @@ script = ExtResource("4_cotuj")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hazards"]
 polygon = PackedVector2Array(1189, -44, 1171, -104, -87, -104, -82, 780, 1247, 778, 1251, -75, 1189, -71, 1182, 740, -37, 740, -37, -48)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_wnav8")]
+[node name="Platforms and obstacles" type="StaticBody2D" parent="."]
+
+[node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(548, 300)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_48ued")
+
+[node name="Center_diamond_shape" type="Polygon2D" parent="Platforms and obstacles/Center_Diamond"]
+polygon = PackedVector2Array(73.5391, 73.5391, 75.6604, -75.6604, -74.9533, -73.5391, -74.9533, 74.9533)
+
+[node name="Right_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(808, 399)
+shape = SubResource("RectangleShape2D_b7m2y")
+
+[node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
+polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
+
+[node name="Floor" type="CollisionPolygon2D" parent="Platforms and obstacles"]
+position = Vector2(7, -14)
+polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
+
+[node name="Floor_shape" type="Polygon2D" parent="Platforms and obstacles/Floor"]
+position = Vector2(-7, -231)
+scale = Vector2(1, 1.40741)
+polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
+
+[node name="Left_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(301, 399)
+shape = SubResource("RectangleShape2D_b7m2y")
+
+[node name="Left_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Left_platform"]
+polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
 
 [connection signal="body_entered" from="Hazards" to="CharacterBody2D" method="_on_hazards_body_entered"]

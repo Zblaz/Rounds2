@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy1q73ob6iocy"]
+
+[ext_resource type="Script" path="res://Scenes/Bullet.gd" id="1_lltc6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6bqd8"]
+radius = 5.0
+
+[node name="Bullet" type="RigidBody2D"]
+position = Vector2(114, 86)
+script = ExtResource("1_lltc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_6bqd8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-120, -90)
+polygon = PackedVector2Array(113, 90, 115, 86, 119, 84, 123, 86, 125, 90, 123, 94, 119, 96, 115, 94)
