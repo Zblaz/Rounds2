@@ -43,5 +43,5 @@ shape = SubResource("CircleShape2D_7besn")
 script = ExtResource("3_sxta1")
 
 [connection signal="area_entered" from="Gun/Bullets" to="Gun" method="_on_bullets_area_entered"]
-[connection signal="area_entered" from="Gun/Bullets" to="Gun/Bullets/Bullet" method="_on_bullets_area_entered"]
 [connection signal="area_entered" from="Gun/Bullets" to="Gun/Bullets" method="_on_area_entered"]
+[connection signal="area_entered" from="Gun/Bullets" to="Gun/Bullets/Bullet" method="_on_bullets_area_entered"]
