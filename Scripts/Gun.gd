@@ -1,14 +1,13 @@
 extends Node2D
 
-@onready var BulletSpawnPoint = $Spawn
+@onready var BulletSpawnPoint = $Spawnhold/Spawn
 
 var bullet_speed: float = 1000
 var BulletScene: PackedScene  # To hold the bullet scene
 var shoot_cooldown: float = 0.3  # Delay between shots
-var can_shoot: bool = true
-var barrel_length = 20
+var can_shoot = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	point_at_mouse()
 
 func point_at_mouse():
@@ -34,8 +33,9 @@ func shoot_bullet():
 	# Calculate the direction towards the mouse
 	var mouse_pos = get_global_mouse_position()
 	var direction = (mouse_pos - bullet_instance.position).normalized()
-
-	bullet_instance.set_direction(direction.normalized(), bullet_speed)  # Set the bullet direction
+	print(direction)
+	
+	bullet_instance.set_direction(direction, bullet_instance)  # Set the bullet direction
 	get_parent().add_child(bullet_instance)  # Add the bullet to the scene
 
 	can_shoot = false  # Prevent shooting too fast
