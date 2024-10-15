@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_v0s2h"]
 [ext_resource type="Script" path="res://Scripts/Gun.gd" id="2_whjw8"]
-[ext_resource type="Script" path="res://Scenes/bullets.gd" id="3_sxta1"]
+[ext_resource type="Script" path="res://Scenes/bullet.gd" id="3_nhqwb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mqdq0"]
 radius = 35.2278
@@ -40,8 +40,6 @@ position = Vector2(-0.75, 1.25)
 [node name="Bullet" type="CollisionShape2D" parent="Gun/Bullets"]
 position = Vector2(76, -13)
 shape = SubResource("CircleShape2D_7besn")
-script = ExtResource("3_sxta1")
+script = ExtResource("3_nhqwb")
 
-[connection signal="area_entered" from="Gun/Bullets" to="Gun" method="_on_bullets_area_entered"]
-[connection signal="area_entered" from="Gun/Bullets" to="Gun/Bullets" method="_on_area_entered"]
-[connection signal="area_entered" from="Gun/Bullets" to="Gun/Bullets/Bullet" method="_on_bullets_area_entered"]
+[connection signal="body_entered" from="Gun/Bullets" to="Gun/Bullets/Bullet" method="_on_bullets_body_entered"]

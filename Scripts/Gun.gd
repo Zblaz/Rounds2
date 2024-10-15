@@ -8,7 +8,7 @@ func _physics_process(delta: float):
 	var mouse_position = get_global_mouse_position()
 	look_at(mouse_position)
 func load_bullet(delta: float) :
-	preload("res://Scenes/bullets.gd")
+	preload("res://Scenes/bullet.gd")
 
 var bullet_start = self.position
 #var bullet_direction = 
