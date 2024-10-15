@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/test_world.gd" id="1_gkex7"]
 [ext_resource type="PackedScene" uid="uid://m1bjk5tikiey" path="res://Scenes/player.tscn" id="1_wnav8"]
 [ext_resource type="PackedScene" uid="uid://dlo0o8o6r6mgv" path="res://Scenes/pause_menu.tscn" id="3_yrrsj"]
-[ext_resource type="Script" path="res://Scripts/polygon_2d.gd" id="4_cotuj"]
+[ext_resource type="Script" path="res://Scripts/Saws.gd" id="4_cotuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48ued"]
 size = Vector2(148, 145)
