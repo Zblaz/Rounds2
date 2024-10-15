@@ -8,7 +8,7 @@
 radius = 35.2278
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7besn"]
-radius = 77.1038
+radius = 5.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(128, 125)
