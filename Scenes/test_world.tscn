@@ -24,17 +24,6 @@ offset_top = 290.0
 offset_right = 203.0
 offset_bottom = 290.0
 
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
-position = Vector2(7, -14)
-polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
-
-[node name="Polygon2D" type="Polygon2D" parent="Floor/CollisionPolygon2D"]
-position = Vector2(-7, -231)
-scale = Vector2(1, 1.40741)
-polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
-
 [node name="Platforms and obstacles" type="StaticBody2D" parent="."]
 
 [node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
@@ -58,6 +47,15 @@ shape = SubResource("RectangleShape2D_b7m2y")
 
 [node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
 polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
+
+[node name="Floor" type="CollisionPolygon2D" parent="Platforms and obstacles"]
+position = Vector2(7, -14)
+polygon = PackedVector2Array(-7, 551, 1160, 546, 1163, 649, -3, 654)
+
+[node name="Floor_shape" type="Polygon2D" parent="Platforms and obstacles/Floor"]
+position = Vector2(-7, -231)
+scale = Vector2(1, 1.40741)
+polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
 
 [node name="Hazards" type="Area2D" parent="."]
 
