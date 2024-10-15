@@ -7,25 +7,25 @@
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [node name="BlueBg" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(288.5, 148.5)
-scale = Vector2(1.2173, 1.00338)
+position = Vector2(288.725, 149)
+scale = Vector2(1.21635, 1)
 texture = ExtResource("1_pys5x")
 flip_v = true
 
 [node name="BlueBg2" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(288.5, 470)
-scale = Vector2(1.2173, 1.2027)
+position = Vector2(289.5, 469)
+scale = Vector2(1.21308, 1.19595)
 texture = ExtResource("1_pys5x")
 flip_h = true
 
 [node name="BlueBg3" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(864, 472.5)
-scale = Vector2(1.21519, 1.18581)
+position = Vector2(865, 472.5)
+scale = Vector2(1.21941, 1.18581)
 texture = ExtResource("1_pys5x")
 flip_v = true
 
 [node name="BlueBg4" type="Sprite2D" parent="ParallaxLayer"]
-position = Vector2(864.5, 148.5)
-scale = Vector2(1.21308, 1.00338)
+position = Vector2(864.275, 149)
+scale = Vector2(1.21213, 1)
 texture = ExtResource("1_pys5x")
 flip_h = true
