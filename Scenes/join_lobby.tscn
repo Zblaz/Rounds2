@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/join_lobby.gd" id="1_bkqah"]
 [ext_resource type="PackedScene" uid="uid://c0mvqe3008l7b" path="res://Scenes/background.tscn" id="2_a63jw"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

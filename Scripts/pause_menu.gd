@@ -8,7 +8,7 @@ func _on_resume_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	pass   #Not Currently Coded
-
-
+	
+	
 func _on_return_to_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

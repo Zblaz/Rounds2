@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bndhfh5ixoie2"]
+[gd_scene load_steps=3 format=3 uid="uid://bcfhjl6n2xlgc"]
 
 [ext_resource type="Script" path="res://Scripts/create_lobby.gd" id="1_c2pqy"]
 [ext_resource type="PackedScene" uid="uid://c0mvqe3008l7b" path="res://Scenes/background.tscn" id="2_hmhhi"]
@@ -21,13 +21,19 @@ offset_bottom = 649.0
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Test_World" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-tooltip_text = "Start  the Game"
-text = "Start Game"
+tooltip_text = "Test_World"
+text = "Test_World"
 flat = true
 
-[node name="Invite Friends" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Create_Lobby" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Create_Lobby"
+text = "Create_Lobby"
+flat = true
+
+[node name="Invite_Friends" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Invite Friends"
 text = "Invite Friends"
@@ -39,6 +45,7 @@ tooltip_text = "Return to Main Menu"
 text = "Back"
 flat = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Invite Friends" to="." method="_on_invite_friends_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Test_World" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Create_Lobby" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Invite_Friends" to="." method="_on_invite_friends_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_button_pressed"]
