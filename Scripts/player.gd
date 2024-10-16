@@ -5,6 +5,7 @@ var radius = 50
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 var pname = "player"
+var health = 100
 
 
 func _process(delta: float):
@@ -42,5 +43,5 @@ func _on_hazards_body_entered(area: CharacterBody2D):
 		hide()
 
 
-func _on_bullet_colliders_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	
+	

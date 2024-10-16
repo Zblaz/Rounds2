@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var lifetime = 2.0
+var damage = randi_range(1, 50)
 
 
 
@@ -18,5 +19,5 @@ func _process(delta):
 	move_and_collide(velocity * delta)
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	hide()
