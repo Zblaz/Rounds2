@@ -2,10 +2,8 @@ extends Node2D
 
 
 var bullet_scene = preload("res://Scenes/Bullet.tscn")
-# Set the bullet scene (drag your Bullet.tscn here)
-# Bullet speed
-@export var bullet_speed = 500.0
-# Fire rate (time in seconds between shots)
+
+@export var bullet_speed = 900.0
 @export var fire_rate = 0.3
 
 
