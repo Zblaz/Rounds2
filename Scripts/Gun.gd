@@ -1,43 +1,37 @@
 extends Node2D
 
-@onready var BulletSpawnPoint = $Spawnhold/Spawn
 
-var bullet_speed: float = 1000
-var BulletScene: PackedScene  # To hold the bullet scene
-var shoot_cooldown: float = 0.3  # Delay between shots
-var can_shoot = true
+var bullet_scene = preload("res://Scenes/Bullet.tscn")
+# Set the bullet scene (drag your Bullet.tscn here)
+# Bullet speed
+@export var bullet_speed = 500.0
+# Fire rate (time in seconds between shots)
+@export var fire_rate = 0.3
 
-func _process(_delta: float) -> void:
-	point_at_mouse()
+var _time_since_last_shot = 0.0
 
-func point_at_mouse():
+
+func _process(delta: float):
+	
 	var mouse_pos = get_global_mouse_position()
-	var direction = (mouse_pos - global_position).normalized()
-	var angle: float = direction.angle()
-	rotation = angle
-	
-	
-func _ready() -> void:
-	# Example to set the bullet scene based on the gun type
-	BulletScene = preload("res://Scenes/Bullet.tscn")  # Change based on the gun type
-
-func _input(event):
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT and can_shoot:
-			shoot_bullet()
+	look_at(mouse_pos)
+	_time_since_last_shot += delta
+	if Input.is_action_pressed("fire") and _time_since_last_shot >= fire_rate:
+		shoot_bullet()
+		_time_since_last_shot = 0.0
 
 func shoot_bullet():
-	var bullet_instance = BulletScene.instantiate()  # Create an instance of the bullet
-	bullet_instance.position = BulletSpawnPoint.position # Spawn at the gun position
-
-	# Calculate the direction towards the mouse
-	var mouse_pos = get_global_mouse_position()
-	var direction = (mouse_pos - bullet_instance.position).normalized()
-	print(direction)
+	var gun_pos = $gun.position
+	var bullet = bullet_scene.instantiate()
+	var mouse_position = get_global_mouse_position()
 	
-	bullet_instance.set_direction(direction, bullet_instance)  # Set the bullet direction
-	get_parent().add_child(bullet_instance)  # Add the bullet to the scene
-
-	can_shoot = false  # Prevent shooting too fast
-	await get_tree().create_timer(shoot_cooldown).timeout  # Await the cooldown timer
-	can_shoot = true
+	bullet.position = gun_pos
+	
+	# Calculate the direction to the mouse
+	var direction = (mouse_position - global_position).normalized()
+	
+	# Set the bullet's velocity
+	bullet.velocity = direction * bullet_speed
+	
+	# Add the bullet to the scene
+	get_parent().add_child(bullet)
