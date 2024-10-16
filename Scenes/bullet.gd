@@ -17,5 +17,6 @@ func _process(delta):
 	# Move the bullet in the direction it was shot
 	move_and_collide((velocity * 2) * delta)
 
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	hide()

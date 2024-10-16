@@ -40,3 +40,7 @@ func _physics_process(delta: float) -> void:
 func _on_hazards_body_entered(area: CharacterBody2D):
 	if pname == "player":
 		hide()
+
+
+func _on_bullet_colliders_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

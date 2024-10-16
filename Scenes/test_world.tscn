@@ -59,6 +59,21 @@ polygon = PackedVector2Array(1189, -44, 1171, -104, -87, -104, -82, 780, 1247, 7
 
 [node name="Platforms and obstacles" type="StaticBody2D" parent="."]
 
+[node name="Bullet Colliders" type="Area2D" parent="Platforms and obstacles"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms and obstacles/Bullet Colliders"]
+polygon = PackedVector2Array(-8, 527, 1170, 529, 1160, 672, -4, 676)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Platforms and obstacles/Bullet Colliders"]
+polygon = PackedVector2Array(249, 391, 351, 391, 350, 411, 250, 410)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Platforms and obstacles/Bullet Colliders"]
+position = Vector2(508, -2)
+polygon = PackedVector2Array(249, 391, 351, 391, 350, 411, 250, 410)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Platforms and obstacles/Bullet Colliders"]
+polygon = PackedVector2Array(548, 405, 657, 299, 547, 195, 443, 300)
+
 [node name="Center_Diamond" type="CollisionShape2D" parent="Platforms and obstacles"]
 position = Vector2(548, 300)
 rotation = 0.785398
@@ -66,13 +81,6 @@ shape = SubResource("RectangleShape2D_48ued")
 
 [node name="Center_diamond_shape" type="Polygon2D" parent="Platforms and obstacles/Center_Diamond"]
 polygon = PackedVector2Array(73.5391, 73.5391, 75.6604, -75.6604, -74.9533, -73.5391, -74.9533, 74.9533)
-
-[node name="Right_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
-position = Vector2(808, 399)
-shape = SubResource("RectangleShape2D_b7m2y")
-
-[node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
-polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
 
 [node name="Floor" type="CollisionPolygon2D" parent="Platforms and obstacles"]
 position = Vector2(7, -14)
@@ -83,6 +91,13 @@ position = Vector2(-7, -231)
 scale = Vector2(1, 1.40741)
 polygon = PackedVector2Array(-3, 654, 1163, 650, 1163, 550.263, -7, 551)
 
+[node name="Right_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
+position = Vector2(808, 399)
+shape = SubResource("RectangleShape2D_b7m2y")
+
+[node name="Right_platform_shape" type="Polygon2D" parent="Platforms and obstacles/Right_platform"]
+polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
+
 [node name="Left_platform" type="CollisionShape2D" parent="Platforms and obstacles"]
 position = Vector2(301, 399)
 shape = SubResource("RectangleShape2D_b7m2y")
@@ -91,3 +106,4 @@ shape = SubResource("RectangleShape2D_b7m2y")
 polygon = PackedVector2Array(50, 10, 50, -10, -51, -10, -51, 10)
 
 [connection signal="body_entered" from="Hazards" to="CharacterBody2D" method="_on_hazards_body_entered"]
+[connection signal="area_entered" from="Platforms and obstacles/Bullet Colliders" to="CharacterBody2D" method="_on_bullet_colliders_area_entered"]

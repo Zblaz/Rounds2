@@ -8,11 +8,19 @@ var bullet_scene = preload("res://Scenes/Bullet.tscn")
 # Fire rate (time in seconds between shots)
 @export var fire_rate = 0.3
 
+
+var gun
+
+
 var _time_since_last_shot = 0.0
 
+func _ready():
+	gun = $gun
+
+	
 
 func _process(delta: float):
-	
+
 	var mouse_pos = get_global_mouse_position()
 	look_at(mouse_pos)
 	_time_since_last_shot += delta
@@ -21,11 +29,10 @@ func _process(delta: float):
 		_time_since_last_shot = 0.0
 
 func shoot_bullet():
-	var gun_pos = $gun.position
 	var bullet = bullet_scene.instantiate()
 	var mouse_position = get_global_mouse_position()
 	
-	bullet.position = gun_pos
+	bullet.position = gun.global_position - self.global_position
 	
 	# Calculate the direction to the mouse
 	var direction = (mouse_position - global_position).normalized()
