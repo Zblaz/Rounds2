@@ -6,7 +6,7 @@ var damage = randi_range(1, 50)
 
 
 func _physics_process(delta: float) -> void:
-	var mouse_position = get_global_mouse_position()
+	var _mouse_position = get_global_mouse_position()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 

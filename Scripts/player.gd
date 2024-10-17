@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-var direction := Input.get_axis("ui_left", "ui_right")
 var radius = 50
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
@@ -8,9 +7,9 @@ var pname = "player"
 var health = 100
 
 
-func _process(delta: float):
+func _process(_delta: float):
 	
-	var mouse_position = get_global_mouse_position()
+	var _mouse_position = get_global_mouse_position()
 
 func _physics_process(delta: float) -> void:
 	var mouse_position = get_global_mouse_position()
@@ -38,10 +37,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_hazards_body_entered(area: CharacterBody2D):
+func _on_hazards_body_entered(_area: CharacterBody2D):
 	if pname == "player":
 		hide()
-
-
-	
-	
